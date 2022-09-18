@@ -6,6 +6,7 @@ const app = express()
 // setup static and middleware
 app.use(express.static('./public'))
 
+//while giving path for variable or methods use dots, while checking url don't use dot heirarchy
 app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, './navbar-app/index.html'))
 })

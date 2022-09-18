@@ -1,5 +1,9 @@
+//express is fast, unopinionated, minimum framework for node.js to create web api etc...
 const express = require('express')
 const app = express()
+
+// const app = require('express')()  [comibining two lines]
+// first argument is path, '*' => all paths
 
 app.get('/', (req, res) => {
   console.log('user hit the resource')

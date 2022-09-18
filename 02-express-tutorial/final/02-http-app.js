@@ -12,7 +12,7 @@ const server = http.createServer((req, res) => {
   const url = req.url
   console.log(url)
   // home page
-  if (url === '/') {
+  if (url === '/' || url === '/index.html') {
     res.writeHead(200, { 'content-type': 'text/html' })
     res.write(homePage)
     res.end()
