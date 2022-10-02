@@ -5,14 +5,20 @@ let { people } = require('./data')
 // static assets
 app.use(express.static('./methods-public'))
 // parse form data
+/* 
+ The urlencoded will parse the input arrived and the based on extended attribute value it uses different library
+ qs library if true
+ query string library if false
+*/
 app.use(express.urlencoded({ extended: false }))
-// parse json
+// parse json for outgoing json messages apart
 app.use(express.json())
 
 app.get('/api/people', (req, res) => {
   res.status(200).json({ success: true, data: people })
 })
 
+// for javascript.html post request
 app.post('/api/people', (req, res) => {
   const { name } = req.body
   if (!name) {
@@ -33,6 +39,7 @@ app.post('/api/postman/people', (req, res) => {
   res.status(201).json({ success: true, data: [...people, name] })
 })
 
+// for regular html form post (index.html)
 app.post('/login', (req, res) => {
   const { name } = req.body
   if (name) {
